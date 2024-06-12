@@ -2,26 +2,28 @@ import 'dart:io';
 
 void main() {
   //Declare variables
-  String? userName, userSurname, userEmail, userPhone;
-  int? userAge;
+  var userName, userSurname, userEmail, userPhone, userAge;
 
   // getting input from the user
   print('Enter the user name:');
   userName = stdin.readLineSync();
+
   print('Enter the user surname:');
   userSurname = stdin.readLineSync();
+
   print('Enter the user email:');
   userEmail = stdin.readLineSync();
+
   print('Enter the user phone number:');
   userPhone = stdin.readLineSync();
+
   print('Enter the user age:');
-  userAge = stdin.readLineSync() as int?;
+  userAge = stdin.readLineSync();
 
   //convert Age from String to int
-  var ageConverted = int.parse(userAge as String);
+  var ageConverted = int.parse(userAge ?? '0');
 
-  Person p1 =
-      Person(userName!, userSurname, userEmail, userPhone, ageConverted);
+  Person p1 = Person(userName, userSurname, userEmail, userPhone, ageConverted);
 
   p1.showData();
 }
